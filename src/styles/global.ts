@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeType } from './Theme';
 
-export default createGlobalStyle`
+export default createGlobalStyle<{ theme: ThemeType }>`
   * {
     margin: 0;
     padding: 0;
@@ -13,15 +14,16 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: 'Roboto Slab', serif;
+    font-family: ${p => p.theme.font}, sans-serif;
     font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
-    font-weight: 500;
+    font-weight: 700;
   }
 
   button {
+    outline: 0;
     cursor: pointer;
   }
 `;
