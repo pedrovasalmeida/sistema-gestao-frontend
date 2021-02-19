@@ -11,5 +11,5 @@ export const Container = styled.div`
 
   padding: 50px;
 
-  background-color: #eeeeee;
+  background-color: ${p => p.theme.colors.background};
 `;
