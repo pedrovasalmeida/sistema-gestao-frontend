@@ -12,7 +12,13 @@ const Routes: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <Switch>{user ? <Logged /> : <Login />}</Switch>
+      {user ? (
+        <Logged />
+      ) : (
+        <Switch>
+          <Login />
+        </Switch>
+      )}
     </BrowserRouter>
   );
 };
