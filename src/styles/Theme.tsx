@@ -5,11 +5,13 @@ type ThemeType = typeof theme;
 
 const theme = {
   colors: {
+    background: '#dddddd',
     darkBlue: '#222831',
     lightBlue: '#30475e',
     white: '#dddddd',
     red: '#f05454',
     black: '#333333',
+    green: '#6bf054',
   },
   font: 'Open Sans',
 };
