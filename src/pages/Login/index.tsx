@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { FiUser } from 'react-icons/fi';
 import { RiLockPasswordLine } from 'react-icons/ri';
@@ -9,6 +9,7 @@ import { useAuth } from '../../context/AuthContext';
 
 import Input from '../../components/Input';
 import sendToast from '../../components/SendToast';
+import Loading from '../../components/Loading';
 
 import { Container, Label, LoginButton } from './styles';
 
@@ -19,8 +20,9 @@ interface UserProps {
 
 const Login: React.FC = () => {
   const { signIn } = useAuth();
-
   const formRef = useRef<FormHandles>(null);
+
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
     const userData: any = formRef.current?.getData();
@@ -41,16 +43,19 @@ const Login: React.FC = () => {
     }
 
     if (userData.email && userData.password.length > 3) {
+      setLoading(true);
       const { email, password } = userData;
 
       if (email === 'admin@marilia.com' && password === '1234') {
         sendToast('Logado. Entrando...', 'success');
+        setLoading(false);
 
         setTimeout(() => {
           signIn({ email, password });
         }, 2000);
       } else {
         setTimeout(() => {
+          setLoading(false);
           sendToast('Login/senha incorretos', 'error');
         }, 1000);
       }
@@ -70,6 +75,8 @@ const Login: React.FC = () => {
           <span>Login</span>
         </LoginButton>
       </Form>
+
+      {loading && <Loading />}
     </Container>
   );
 };
