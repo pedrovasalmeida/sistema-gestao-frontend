@@ -15,7 +15,7 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 
   body, input, button {
     font-family: ${p => p.theme.font}, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -24,6 +24,7 @@ export default createGlobalStyle<{ theme: ThemeType }>`
 
   button {
     outline: 0;
+    border: 0;
     cursor: pointer;
   }
 `;
