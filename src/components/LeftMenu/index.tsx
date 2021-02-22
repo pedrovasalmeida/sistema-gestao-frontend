@@ -97,7 +97,7 @@ const LeftMenu: React.FC = () => {
       {menuOptions.map(option => (
         <React.Fragment key={`key#${option.descricaoAba}`}>
           <TabDescription>{option.descricaoAba}</TabDescription>
-          {option.options.map((item: any) => (
+          {(option.options as object[]).map((item: any) => (
             <React.Fragment key={item.name}>
               <MenuOption>
                 {item.icon}
