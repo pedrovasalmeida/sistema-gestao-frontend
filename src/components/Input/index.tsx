@@ -29,18 +29,26 @@ const InputComponent: React.FC<InputProps> = ({
 
   const verifyInputField = useCallback(() => {
     if (fieldName === 'email') {
-      const searchAt = inputRef.current?.value.includes('@');
-      const searchDot = inputRef.current?.value.includes('.');
-
-      if (!searchDot || !searchAt) {
-        setInputError(true);
-      } else {
+      if (!inputRef.current?.value) {
         setInputError(false);
+      } else {
+        const searchAt = inputRef.current?.value.includes('@');
+        const searchDot = inputRef.current?.value.includes('.');
+
+        if (!searchDot || !searchAt) {
+          setInputError(true);
+        } else {
+          setInputError(false);
+        }
       }
     }
 
-    if (fieldName === 'password' && inputRef.current) {
-      if (inputRef.current?.value.length < 4) {
+    if (fieldName === 'password') {
+      if (
+        inputRef.current?.value &&
+        inputRef.current.value.length > 0 &&
+        inputRef.current.value.length < 4
+      ) {
         setInputError(true);
       } else {
         setInputError(false);
@@ -74,7 +82,7 @@ const InputComponent: React.FC<InputProps> = ({
       {Icon && <Icon size={25} />}
       <input
         onFocus={() => setIsFocused(true)}
-        onBlur={handleInputBlur}
+        onChange={handleInputBlur}
         ref={inputRef}
         {...rest}
       />
