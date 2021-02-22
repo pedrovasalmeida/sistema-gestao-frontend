@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { shade } from 'polished';
+import { shade, lighten } from 'polished';
 
 interface ContainerProps {
   isFocused: boolean;
@@ -23,7 +23,7 @@ export const Container = styled.div<ContainerProps>`
     left: 15px;
     top: 12px;
 
-    color: ${p => p.theme.colors.darkBlue};
+    color: ${p => p.theme.colors.lightBlue};
   }
 
   ${p =>
@@ -32,12 +32,14 @@ export const Container = styled.div<ContainerProps>`
       border: 2px solid ${shade(0.2, p.theme.colors.lightBlue)};
 
       svg {
-        color: ${shade(0.2, p.theme.colors.green)};
+        color: ${shade(0.2, p.theme.colors.lightBlue)};
       }
     `}
   ${p =>
     p.isFilled &&
     css`
+      border: 2px solid ${shade(0.2, p.theme.colors.green)};
+
       svg {
         color: ${shade(0.2, p.theme.colors.green)};
       }
@@ -65,5 +67,3 @@ export const Container = styled.div<ContainerProps>`
     font-weight: 700;
   }
 `;
-
-export const Input = styled.input``;
