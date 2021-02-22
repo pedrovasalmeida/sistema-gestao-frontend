@@ -69,6 +69,7 @@ const InputComponent: React.FC<InputProps> = ({
       inputError={inputError}
       isFilled={isFilled}
       isFocused={isFocused}
+      onClick={() => inputRef.current?.focus()}
     >
       {Icon && <Icon size={25} />}
       <input
