@@ -1,6 +1,9 @@
 import { toast } from 'react-toastify';
 
-const SendToast = (message: string, type: 'error' | 'success' | 'info') => {
+const SendToast = (
+  message: string,
+  type: 'error' | 'success' | 'info',
+): void => {
   toast(message, {
     position: 'top-right',
     autoClose: 2000,

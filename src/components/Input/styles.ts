@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { shade, lighten } from 'polished';
+import { shade } from 'polished';
 
 interface ContainerProps {
   isFocused: boolean;
