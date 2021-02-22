@@ -108,7 +108,7 @@ export const UserFloatDiv = styled.div`
   top: 56px;
 
   width: 235px;
-  min-height: 60px;
+  height: auto;
 
   background: #fff;
 
