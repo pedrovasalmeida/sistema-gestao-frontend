@@ -5,7 +5,7 @@ type ThemeType = typeof theme;
 
 const theme = {
   colors: {
-    background: '#dddddd',
+    background: '#f8faff',
     darkBlue: '#222831',
     lightBlue: '#30475e',
     white: '#dddddd',
