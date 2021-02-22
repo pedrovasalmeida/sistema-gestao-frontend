@@ -37,6 +37,17 @@ export const Container = styled.div<ContainerProps>`
     css`
       display: none;
     `}
+
+  @media only screen and (max-width: 650px) {
+    position: fixed;
+    left: 0;
+    top: 56px;
+
+    overflow-y: scroll;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 `;
 
 export const TabDescription = styled.span`
