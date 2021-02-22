@@ -1,6 +1,6 @@
 /** Packages */
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 /** Pages */
@@ -15,9 +15,10 @@ const Routes: React.FC = () => {
       {user ? (
         <Logged />
       ) : (
-        <Switch>
+        <>
+          <Redirect from="*" to="/" exact />
           <Login />
-        </Switch>
+        </>
       )}
     </BrowserRouter>
   );
