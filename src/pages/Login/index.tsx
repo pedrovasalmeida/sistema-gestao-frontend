@@ -13,11 +13,6 @@ import Loading from '../../components/Loading';
 
 import { Container, Label, LoginButton } from './styles';
 
-interface UserProps {
-  email: string;
-  password: string;
-}
-
 const Login: React.FC = () => {
   const { signIn } = useAuth();
   const formRef = useRef<FormHandles>(null);
@@ -25,25 +20,28 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
+    setLoading(true);
     const userData: any = formRef.current?.getData();
 
     if (!userData.email && !userData.password) {
       sendToast('Insira seu e-mail/senha', 'error');
+      setLoading(false);
       return;
     }
 
     if (!userData.email.includes('@') || !userData.email.includes('.')) {
       sendToast('Insira um e-mail válido', 'error');
+      setLoading(false);
       return;
     }
 
     if (!userData.password || userData.password.length < 4) {
       sendToast('Insira uma senha de, no mínimo, 4 caracteres', 'error');
+      setLoading(false);
       return;
     }
 
     if (userData.email && userData.password.length > 3) {
-      setLoading(true);
       const { email, password } = userData;
 
       if (email === 'admin@marilia.com' && password === '1234') {
