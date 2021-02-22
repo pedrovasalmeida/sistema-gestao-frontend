@@ -11,8 +11,13 @@ interface UserCredentials {
   token: string;
 }
 
+interface UserProps {
+  email: string;
+  token: string;
+}
+
 interface AuthContextProps {
-  user: object | null;
+  user: UserProps | null;
   signIn: (credentials: SignInCredentials) => void;
   signOut: () => void;
 }
@@ -53,7 +58,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   const signOut = () => {
     localStorage.removeItem('@GestaoMarilia:user');
-
     setUserCredentials(null);
   };
 
